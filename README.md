@@ -8,4 +8,4 @@ Type 'npm run dev' on your terminal
 Type 'npx prisma db seed' on your terminal
 
 # How To Test
-Use Book Store API.postman_collection.json to import in Postman
+Use Article API.postman_collection.json to import in Postman
