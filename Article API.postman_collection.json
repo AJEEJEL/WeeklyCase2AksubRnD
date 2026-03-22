@@ -1,209 +1,297 @@
 {
   "info": {
-    "_postman_id": "1f5aa2ff-1be1-416c-9dfb-9f07ad6e3935",
+    "_postman_id": "e41bf09a-4400-458d-b9b2-6b109e0bbdfd",
     "name": "Article API",
+    "description": "Full Postman Collection for Week 3 - Auth & Article API with JWT, Role-based Authorization and Error Handling",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "53011089",
-    "_collection_link": "https://go.postman.co/collection/53011089-1f5aa2ff-1be1-416c-9dfb-9f07ad6e3935?source=collection_link"
+    "_collection_link": "https://go.postman.co/collection/53011089-e41bf09a-4400-458d-b9b2-6b109e0bbdfd?source=collection_link"
   },
   "item": [
     {
-      "name": "getAllPublished",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/articles",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "3000",
-          "path": [
-            "articles"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "getById",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/articles/1",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "3000",
-          "path": [
-            "articles",
-            "1"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "createArticle",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "title",
-              "value": "Prisma 7 News",
-              "type": "text",
-              "uuid": "4ce9d664-65ff-4159-9cde-3bd1e8d9d63d"
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login Admin",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"sawitwowo@gmail.com\",\n  \"password\": \"adminsukasawit@123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
-            {
-              "key": "content",
-              "value": "Prisma 7 is amazing for backend devs!",
-              "type": "text",
-              "uuid": "b1af2ef7-beba-493d-9a45-2d55cca4a747"
-            },
-            {
-              "key": "author",
-              "value": "Hazel Saputra - Postman",
-              "type": "text",
-              "uuid": "af03d5bc-f1fd-4e6c-8936-61a2c420b549"
-            },
-            {
-              "key": "thumbnail",
-              "type": "file",
-              "uuid": "c1ab9dc6-7cbc-4af1-bab8-a1844c3d4239",
-              "src": "/D:/BMTA Asset/grand max box.jpeg"
+            "url": {
+              "raw": "http://localhost:3000/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "login"
+              ]
             }
-          ]
+          },
+          "response": []
         },
-        "url": {
-          "raw": "http://localhost:3000/articles",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "3000",
-          "path": [
-            "articles"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "updateArticle",
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "title",
-              "value": "Prisma 7 News Updated",
-              "type": "text",
-              "uuid": "4ce9d664-65ff-4159-9cde-3bd1e8d9d63d"
+        {
+          "name": "Register Reader",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"John1234\",\n  \"dateOfBirth\": \"1995-05-10\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
-            {
-              "key": "content",
-              "value": "Updated content",
-              "type": "text",
-              "uuid": "b1af2ef7-beba-493d-9a45-2d55cca4a747"
-            },
-            {
-              "key": "thumbnail",
-              "type": "file",
-              "uuid": "c1ab9dc6-7cbc-4af1-bab8-a1844c3d4239",
-              "src": "/D:/Bina Nusantara/BNCC/bncc logo after.png"
+            "url": {
+              "raw": "http://localhost:3000/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "register"
+              ]
             }
-          ]
+          },
+          "response": []
         },
-        "url": {
-          "raw": "http://localhost:3000/articles/6",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "3000",
-          "path": [
-            "articles",
-            "6"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "deleteArticle",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/articles/1",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "3000",
-          "path": [
-            "articles",
-            "1"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "publishArticle",
-      "request": {
-        "method": "PATCH",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/articles/6/publish",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "3000",
-          "path": [
-            "articles",
-            "6",
-            "publish"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "searchByTitle",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/articles/search/?title=prisma",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "3000",
-          "path": [
-            "articles",
-            "search",
-            ""
-          ],
-          "query": [
-            {
-              "key": "title",
-              "value": "prisma"
+        {
+          "name": "Assign Role (Admin Only)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"role\": \"writer\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/users/role",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "users",
+                "role"
+              ]
             }
-          ]
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
+    },
+    {
+      "name": "Articles",
+      "item": [
+        {
+          "name": "Get All Published Articles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/articles",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "articles"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search Article by Title",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/articles/search?title=Node.js",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "articles",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "title",
+                  "value": "Node.js"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Article",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{writer_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"New Express Tips\",\n  \"content\": \"Learn middleware, routers, and error handling.\",\n  \"author\": \"John Doe\",\n  \"thumbnail\": \"/uploads/thumbnails/new.png\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/articles",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "articles"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Edit Article",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{writer_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Updated Express Tips\",\n  \"content\": \"Updated content here.\",\n  \"thumbnail\": \"/uploads/thumbnails/updated.png\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/articles/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "articles",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Article",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{writer_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/articles/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "articles",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Publish Article (Editor Only)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{editor_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/articles/2/publish",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "articles",
+                "2",
+                "publish"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "admin_token",
+      "value": ""
+    },
+    {
+      "key": "writer_token",
+      "value": ""
+    },
+    {
+      "key": "editor_token",
+      "value": ""
     }
   ]
 }

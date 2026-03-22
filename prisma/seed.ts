@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import bcrypt from 'bcrypt';
 import { PrismaPg } from '@prisma/adapter-pg';
 import 'dotenv/config';
 
@@ -9,6 +10,27 @@ const adapter = new PrismaPg({
 const prisma = new PrismaClient({ adapter });
 
 async function main(): Promise<void> {
+  const hashedPassword = await bcrypt.hash("adminsukasawit@123", 10);
+
+  const existingAdmin = await prisma.user.findUnique({
+    where: { email: "sawitwowo@gmail.com" },
+  });
+
+  if (!existingAdmin) {
+    await prisma.user.create({
+      data: {
+        name: "Admin",
+        email: "sawitwowo@gmail.com",
+        password: hashedPassword,
+        role: "admin",
+        dateOfBirth: new Date("2000-01-10"),
+      },
+    });
+    console.log("Admin user created!");
+  } else {
+    console.log("Admin user already exists!");
+  }
+
   const articles = [
     {
       title: "Breaking News: Node.js 22 Released",
@@ -48,12 +70,10 @@ async function main(): Promise<void> {
   ];
 
   for (const article of articles) {
-    await prisma.article.create({
-      data: article,
-    });
+    await prisma.article.create({ data: article });
   }
 
-  console.log("Seeder finished! 5 articles added.");
+  console.log("Seeder finished! Admin + 5 articles added.");
 }
 
 main()
